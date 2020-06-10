@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View , Text, Button} from 'react-native';
 import { Todo } from '../../components/Todo/Todo';
 import { EditModal } from '../../components/EditModal/EditModal.js';
+import { AppText } from '../../ui/appText/appText.js';
 
 export const TodoScreen = ({goBack, todo, onRemove, onSave}) => {
     const [modal, setModal] = useState(false);

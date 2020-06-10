@@ -3,11 +3,26 @@ import { StyleSheet, View,  Alert} from 'react-native';
 import { Navbar } from './src/components/Navrar/Navbar';
 import { MainScreen } from './src/screens/MainScreen/MainScreen';
 import { TodoScreen } from './src/screens/TodoScreen/TodoScreen';
+import * as Font from 'expo-font';
+import {AppLoading} from 'expo'
 
+async function loadApplication() {
+  await Font.loadAsync({
+    'roboto-regular': require('./assets/fonts/Roboto-Regular.ttf'),
+    'robot-bold': require('./assets/fonts/Roboto-Regular.ttf')
+  })
+}
 
 export default function App() {
+  const [isReady, setIsReady] = useState(false)
   const [todoId, setTodoId] = useState(null);
   const [todos, setTodos] = useState([]);
+
+  if(!isReady) {
+    return <AppLoading startAsync={loadApplication} 
+    onFinish={() => setIsReady(true)}
+    onError={err => console.log(err)}/>
+  }
 
   const addTodo = title => {
    setTodos(prev => [...prev, {
