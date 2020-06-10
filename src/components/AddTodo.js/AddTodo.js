@@ -6,7 +6,7 @@ export const AddTodo = ({ onSubmit }) => {
 
     const pressHandler = () => {
       if(value.trim()) {
-        onSubmit('Test Todo');
+        onSubmit(value);
         setValue('');
       } else {
         Alert.alert("The name of a deal can't be empty")
