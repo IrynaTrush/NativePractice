@@ -3,11 +3,20 @@ import { StyleSheet, View , Text, Button} from 'react-native';
 import { Todo } from '../../components/Todo/Todo';
 import { EditModal } from '../../components/EditModal/EditModal.js';
 
-export const TodoScreen = ({goBack, todo, onRemove}) => {
+export const TodoScreen = ({goBack, todo, onRemove, onSave}) => {
     const [modal, setModal] = useState(false);
+
+    const SaveHandler = title => {
+        onSave(todo.id, title);
+        setModal(false);
+    }
     return (
         <View>
-            <EditModal visible={modal} onCancel={() => setModal(false)}/>
+            <EditModal visible={modal} 
+            value={todo.title}
+            onCancel={() => setModal(false)}
+            onSave={SaveHandler}
+            />
            <View style={styles.edit}>
            <Text>
                {todo.title}
