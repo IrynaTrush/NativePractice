@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, TextInput, Button, Alert} from 'react-native';
+import { AntDesign } from '@expo/vector-icons'; 
 
 export const AddTodo = ({ onSubmit }) => {
     const [value, setValue] = useState('');
@@ -20,7 +21,9 @@ export const AddTodo = ({ onSubmit }) => {
             value={value}
             placeholder="Enter a name of a deal"
             />
-            <Button title="Add" onPress={pressHandler}/>
+            <AntDesign.Button onPress={pressHandler} name="pluscircleo">Add</AntDesign.Button>
+            
+            {/* <Button title="Add" onPress={pressHandler}/> */}
         </View>
     );
 }
@@ -33,7 +36,7 @@ const styles = StyleSheet.create({
         marginBottom: 15,
     },
     input: {
-        width: '80%',
+        width: '60%',
         padding: 10,
         borderStyle: 'solid',
         borderBottomWidth: 2,
