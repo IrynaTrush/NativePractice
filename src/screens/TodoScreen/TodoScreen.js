@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View , Text, Button} from 'react-native';
 import { Todo } from '../../components/Todo/Todo';
+import { EditModal } from '../../components/EditModal/EditModal.js';
 
 export const TodoScreen = ({goBack, todo, onRemove}) => {
+    const [modal, setModal] = useState(false);
     return (
         <View>
+            <EditModal visible={modal} onCancel={() => setModal(false)}/>
            <View style={styles.edit}>
            <Text>
                {todo.title}
             </Text>
-            <Button title="edit" onPress={() => console.log('sth')}/>
+            <Button title="edit" onPress={() => setModal(true)}/>
            </View>
             <View style={styles.buttons}>
                 <View style={styles.button}><Button title="Back" onPress={goBack} /></View>
