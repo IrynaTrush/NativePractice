@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View , Text, Button} from 'react-native';
+import { StyleSheet, View , Text, Button, Dimensions} from 'react-native';
 import { Todo } from '../../components/Todo/Todo';
 import { EditModal } from '../../components/EditModal/EditModal.js';
 import { AppText } from '../../ui/appText/appText.js';
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
     },
     button: {
-        width: '40%',
+        width: Dimensions.get('window').width / 3,
     },
     edit: {
         flexDirection: 'row',
